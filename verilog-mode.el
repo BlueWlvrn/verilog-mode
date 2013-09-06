@@ -5270,7 +5270,7 @@ Return a list of two elements: (INDENT-TYPE INDENT-LEVEL)."
 		   ;; if we are in a comment, done.
 		   (if (verilog-in-star-comment-p)
 		       (throw 'nesting 'comment))
-                   
+
 		   ;; if we have a directive, done.
 		   (if (save-excursion (beginning-of-line)
 				       (and (looking-at verilog-directive-re-1)
@@ -5416,20 +5416,10 @@ Return a list of two elements: (INDENT-TYPE INDENT-LEVEL)."
 	   (list type (current-column)))
 	  ((eq type 'defun)
 	   (list type 0))
-<<<<<<< HEAD
 	  ((eq type 'constraint)
 	   (list 'block (current-column)))
 	  ((eq type 'nested-struct)
 	   (list 'block structres))
-	  ;;((eq type 'struct-close)
-	  ;; (list 'block (current-column)))
-||||||| merged common ancestors
-=======
-	  ((eq type 'constraint)
-	   (list 'block (current-column)))
-	  ((eq type 'nested-struct)
-	   (list 'block structres))
->>>>>>> upstream/master
 	  (t
 	   (list type (verilog-current-indent-level))))))))
 
